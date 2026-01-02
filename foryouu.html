@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Untuk Pemilik Teduh</title>
+    
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;1,700&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet">
+    
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Quicksand', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            /* WARNA CADANGAN: Kalau foto nggak muncul, ini yang kelihatan */
+            background: #1a1a1a; 
+            /* SETUP BACKGROUND FOTO */
+            background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('kita.jpg');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            color: white;
+            padding: 20px;
+            overflow: hidden;
+        }
+
+        /* Tombol Awal */
+        #btn-buka {
+            padding: 15px 40px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #1a1a1a;
+            background: #ffffff;
+            border: none;
+            border-radius: 50px;
+            cursor: pointer;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+            transition: all 0.3s ease;
+            z-index: 10;
+        }
+
+        #btn-buka:hover {
+            transform: scale(1.05);
+            background: #f0f0f0;
+        }
+
+        /* Kartu Surat */
+        .card {
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(15px);
+            -webkit-backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 25px;
+            padding: 40px 30px;
+            text-align: center;
+            display: none; /* Sembunyi di awal */
+            animation: muncuul 2.5s ease forwards;
+            max-height: 85vh;
+            overflow-y: auto;
+        }
+
+        /* Scrollbar Halus untuk Kartu */
+        .card::-webkit-scrollbar { width: 5px; }
+        .card::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.2); border-radius: 10px; }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            font-style: italic;
+            font-size: 1.6rem;
+            margin-bottom: 25px;
+            line-height: 1.4;
+        }
+
+        .isi-surat {
+            font-size: 1rem;
+            line-height: 1.8;
+            text-align: justify;
+            opacity: 0.9;
+            white-space: pre-line;
+        }
+
+        .footer {
+            margin-top: 30px;
+            font-size: 0.8rem;
+            font-style: italic;
+            opacity: 0.6;
+        }
+
+        /* Animasi Muncul */
+        @keyframes muncuul {
+            from { opacity: 0; transform: translateY(30px) scale(0.9); }
+            to { opacity: 1; transform: translateY(0) scale(1); }
+        }
+
+    </style>
+</head>
+<body>
+
+    <button id="btn-buka" onclick="mulai()">TAKAN KO YOOO!!!! ✨</button>
+
+    <div class="card" id="konten-surat">
+        <h1>Kepada kamu, pemilik teduh yang paling aku damba,</h1>
+        
+        <div class="isi-surat">
+di antara riuhnya dunia dan langkah-langkah kaki yang silih berganti, terima kasih telah memilih untuk berhenti dan menetap di sisiku. kehadiranmu bukan sekadar keberuntungan bagiku, melainkan sebuah anugerah yang tak mampu kuterjemahkan sepenuhnya melalui aksara. terima kasih telah menjadi bagian paling tenang dalam hiruk-pikuk hidupku.
+
+aku sadar, aku hanyalah manusia yang penuh dengan celah dan kekurangan. maafkan aku jika hingga detik ini jemariku belum cukup hangat untuk menghapus laramu, atau jika pribadiku belum sepenuhnya menjadi sosok terbaik yang kamu damba. aku masih terus belajar untuk pantas bersamamu, meski kadang langkahku tertatih.
+
+namun, di atas segala ketidaksempurnaanku, satu hal yang perlu kamu yakini: sayangku padamu adalah sebuah ketetapan yang tak pernah ragu. maka, aku memohon, tetaplah di sini. jangan biarkan musim yang berganti atau badai yang datang menggoyahkan genggaman kita. jangan pernah tinggalkan aku, apa pun kondisinya nanti. mari kita rayakan bahagia dan kita lalui luka bersama-sama. Sebab tanpamu, aku hanyalah sebuah kalimat yang kehilangan maknanya.
+
+aku mencintaimu, lebih luas dari yang mampu diucapkan lisan, lebih dalam dari yang mampu dituliskan tangan.
+        </div>
+
+        <div class="footer">LOVE YOUUUU ANGGUUNN</div>
+    </div>
+
+    <audio id="lagu" loop>
+        <source src="ada untukmu.mp3" type="audio/mpeg">
+    </audio>
+
+    <script>
+        function mulai() {
+            // 1. Putar Lagu
+            const musik = document.getElementById('lagu');
+            musik.play();
+
+            // 2. Sembunyikan Tombol
+            document.getElementById('btn-buka').style.display = 'none';
+
+            // 3. Munculkan Surat
+            const surat = document.getElementById('konten-surat');
+            surat.style.display = 'block';
+        }
+    </script>
+</body>
+</html>
